@@ -1,5 +1,6 @@
 defmodule Problem002 do
   require Integer
+  @moduledoc false
   
   def fibonacci(0), do: 0
   def fibonacci(1), do: 1
@@ -7,7 +8,7 @@ defmodule Problem002 do
     raise "Fibonacci sequence is not defined for negative input."
   end
   def fibonacci(n) do
-    fibonacci(n-1) + fibonacci(n-2)
+    fibonacci(n - 1) + fibonacci(n - 2)
   end
 
   def sum_of_even_fibonacci_numbers_under(border) do
@@ -18,14 +19,14 @@ defmodule Problem002 do
   end
 
   defp fibonacci_numbers_under(border) do
-    foo(0,[], border)
+    foo(0, [], border)
   end
 
   defp foo(current_position, numbers, border) do
     new_number = fibonacci(current_position)
     cond do
       new_number > border -> numbers
-      true -> foo(current_position+1, [new_number | numbers], border)
+      true -> foo(current_position + 1, [new_number | numbers], border)
     end
 
   end

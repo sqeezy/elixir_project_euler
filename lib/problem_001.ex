@@ -1,7 +1,8 @@
 defmodule Problem001 do
+  @moduledoc false
 
   def sum_of_numbers_divided_by(divisors, upper_bound) do
-    testrange = 1..(upper_bound-1)
+    testrange = 1..(upper_bound - 1)
 
     testrange
       |> Enum.to_list
@@ -9,7 +10,7 @@ defmodule Problem001 do
       |> Enum.sum
   end
 
-  defp can_be_divided_by_any?(num ,divisors) do
+  defp can_be_divided_by_any?(num, divisors) do
     Enum.any?(divisors, fn(devisor) -> rem(num, devisor) == 0 end)
   end
 end
