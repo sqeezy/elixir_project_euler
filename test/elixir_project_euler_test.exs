@@ -1,0 +1,8 @@
+defmodule ElixirProjectEulerTest do
+  use ExUnit.Case
+  doctest ElixirProjectEuler
+
+  test "the truth" do
+    assert 1 + 1 == 2
+  end
+end
