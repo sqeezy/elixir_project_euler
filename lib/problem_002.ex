@@ -5,7 +5,7 @@ defmodule Problem002 do
   def fibonacci(0), do: 0
   def fibonacci(1), do: 1
   def fibonacci(n) when (n < 0) do
-    raise "Fibonacci sequence is not defined for negative input."
+    raise(ArgumentError, "Fibonacci sequence is not defined for negative input.")
   end
   def fibonacci(n) do
     fibonacci(n - 1) + fibonacci(n - 2)
@@ -24,9 +24,10 @@ defmodule Problem002 do
 
   defp foo(current_position, numbers, border) do
     new_number = fibonacci(current_position)
-    cond do
-      new_number > border -> numbers
-      true -> foo(current_position + 1, [new_number | numbers], border)
+    if(new_number > border) do
+      numbers
+    else
+      foo(current_position + 1, [new_number | numbers], border)
     end
 
   end
