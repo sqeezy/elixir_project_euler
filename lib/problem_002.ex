@@ -15,15 +15,15 @@ defmodule Problem002 do
   end
 
   defp fibonacci_numbers_under(border) do
-    foo(0, [], border)
+    fibonacci_numbers_under(0, [], border)
   end
 
-  defp foo(current_position, numbers, border) do
+  defp fibonacci_numbers_under(current_position, numbers, border) do
     new_number = fibonacci(current_position)
     if(new_number > border) do
       numbers
     else
-      foo(current_position + 1, [new_number | numbers], border)
+      fibonacci_numbers_under(current_position + 1, [new_number | numbers], border)
     end
 
   end
