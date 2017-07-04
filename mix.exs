@@ -29,7 +29,8 @@ defmodule ElixirProjectEuler.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:combination, "~> 0.0.3"}
     ]
   end
 end

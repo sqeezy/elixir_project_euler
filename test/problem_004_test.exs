@@ -1,7 +1,6 @@
 defmodule Problem004Test do
   use ExUnit.Case
 
-  @tag :skip
   test "largest palindromic number out of two three-digit factors is 906609" do
     assert Problem004.largest_palindromic_number_from_three_digit_factors == 906609
   end
