@@ -7,8 +7,6 @@ defmodule Problem004 do
 
   def is_palindrom?(n) do
     digits = Integer.digits(n)
-    half_length = div(length(digits), 2)
-    1..half_length
-      |> Enum.all?(&(Enum.at(digits, &1-1)==Enum.at(digits, -&1)))
+    digits == Enum.reverse(digits)
   end
 end
