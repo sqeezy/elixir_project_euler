@@ -21,27 +21,26 @@ defmodule Problem011 do
 
     x_max = length(matrix) - 1
     y_max = length(Enum.at(matrix, 0)) - 1
+
     possible_x = 0..x_max
     possible_y = 0..y_max
-
     start_points = Comb.cartesian_product(possible_x, possible_y)
 
     start_points
       |> Enum.map(&get_all_index_pairs_for_start_position/1)
       |> Enum.concat
       |> Enum.to_list
-      |> Enum.filter( &(is_in_matrix_boundries(&1, x_max, y_max)) )
+      |> Enum.filter(&(is_in_matrix_boundries(&1, x_max, y_max)))
       |> Enum.map(&(get_values_for_index_pairs(&1, matrix)))
       |> Enum.map(fn nums -> List.foldl(nums, 1, &(&1 * &2)) end)
       |> Enum.max
-
   end
 
   defp get_values_for_index_pairs([], _), do: []
   defp get_values_for_index_pairs([pair | tail], matrix) do
     [x, y] = pair
     pair_value = get_value_from_matrix(x, y, matrix)
-    [ pair_value | get_values_for_index_pairs(tail, matrix)]
+    [pair_value | get_values_for_index_pairs(tail, matrix)]
   end
 
   defp get_all_index_pairs_for_start_position(start) do
@@ -88,7 +87,7 @@ defmodule Problem011 do
     [a * f, b * f]
   end
 
-  defp add([],[]), do: []
+  defp add([], []), do: []
   defp add(v1, v2) when length(v1) == length(v2) do
     [e1 | tail1] = v1
     [e2 | tail2] = v2
