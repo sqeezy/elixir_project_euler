@@ -30,7 +30,8 @@ defmodule ElixirProjectEuler.Mixfile do
   defp deps do
     [
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:combination, "~> 0.0.3"}
+      {:combination, "~> 0.0.3"},
+      {:comb, git: "https://github.com/tallakt/comb"}
     ]
   end
 end

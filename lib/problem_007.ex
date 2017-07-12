@@ -1,5 +1,6 @@
 defmodule Problem007 do
   @moduledoc false
+  import Prime
   
   def get_prime(1), do: 2
   def get_prime(target_num) when target_num > 1 do
@@ -18,14 +19,4 @@ defmodule Problem007 do
     end
   end
 
-  def is_prime?(n) do
-    range_end = round(:math.sqrt(n))
-    range = 2..range_end
-    factors_count = range
-                      |> Stream.filter(&(rem(n, &1) == 0))
-                      |> Stream.take(1)
-                      |> Enum.to_list
-                      |> length
-    factors_count == 0
-  end
 end
